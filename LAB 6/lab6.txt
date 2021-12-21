@@ -1,0 +1,86 @@
+Script started on 2021-11-08 04:12:49+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+]777;notify;Command completed;code ./\]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ ls
+[?2004l]777;preexec\AverageDriver.java  Classics.txt      lab6.txt
+Average.java        CompactDisc.java  Song.java
+]777;notify;Command completed;ls\]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ cat AverageDriver.java 
+[?2004l]777;preexec\public class AverageDriver {
+    public static void main(String[] args) {
+        Average average = new Average();
+        System.out.println(average.toString())
+        ;
+    }
+    
+}
+]777;notify;Command completed;cat AverageDriver.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ javac AverageDriver.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac AverageDriver.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ java AverageDriver 
+[?2004l]777;preexec\Enter Data1
+1
+Enter Data2
+2
+Enter Data3
+3
+Enter Data4
+4
+Enter Data5
+5
+test sort
+Decending order: 5 4 3 2 1 
+mean = 3.0
+]777;notify;Command completed;java AverageDriver \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ cat CompactDisc.java 
+[?2004l]777;preexec\import java.io.*;
+
+/**
+   This program creates a list of songs for a CD
+   by reading from a file.
+*/
+
+public class CompactDisc
+{
+   public static void main(String[] args)throws IOException
+   {
+      FileReader file = new FileReader("Classics.txt");
+      BufferedReader input = new BufferedReader(file);
+      String title;
+      String artist;
+
+      // ADD LINES FOR TASK #3 HERE
+      Song[] cd = new Song[6];// Declare an array of Song objects, called cd,
+      // with a size of 6
+
+      for (int i = 0; i < cd.length; i++)
+      {
+         title = input.readLine();
+         artist = input.readLine();
+
+         // ADD LINES FOR TASK #3 HERE
+         cd[i] = new Song(title, artist);// Fill the array by creating a new song with
+         // the title and artist and storing it in the
+         // appropriate position in the array
+      }
+
+      System.out.println("Contents of Classics:");
+      for (int i = 0; i < cd.length; i++)
+      {
+         // ADD LINES FOR TASK #3 HERE
+         System.out.println(cd[i]);// Print the contents of the array to the console
+      }
+   }
+}]777;notify;Command completed;cat CompactDisc.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ javac com[K[K[KCompactDisc.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac CompactDisc.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ java CompactDisc 
+[?2004l]777;preexec\Contents of Classics:
+Ode to Joy by Bach
+
+The Sleeping Beauty by Tchaikovsky
+
+Lullaby by Brahms
+
+Canon by Bach
+
+Symphony No. 5 by Beethoven
+
+The Blue Danube Waltz by Strauss
+
+]777;notify;Command completed;java CompactDisc \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 6\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%206\[?2004h[shubhammalhotra@fedora LAB 6]$ exit
+[?2004l]777;preexec\exit
+
+Script done on 2021-11-08 04:14:16+05:30 [COMMAND_EXIT_CODE="0"]

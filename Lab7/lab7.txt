@@ -1,0 +1,172 @@
+Script started on 2021-11-15 02:36:46+05:30 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+]777;notify;Command completed;code ./\]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ ja[K[Kcat MO[KoneyDemo.java 
+[?2004l]777;preexec\/**
+   This program demonstrates the Money class.
+*/
+
+public class MoneyDemo
+{
+   public static void main(String[] args)
+   {
+      // Named constants
+      final int BEGINNING = 500; // Beginning balance
+      final Money FIRST_AMOUNT  = new Money(10.02);
+      final Money SECOND_AMOUNT = new Money(10.02);
+      final Money THIRD_AMOUNT  = new Money(10.88);
+
+      // Create an instance of the Money class with
+      // the beginning balance.
+      Money balance = new Money(BEGINNING);
+
+      // Display the current balance.
+      System.out.println("The current amount is " +
+                         balance.toString());
+
+      // Add the second amount to the balance
+      // and display the results.
+      balance = balance.add(SECOND_AMOUNT);
+      System.out.println("Adding " + SECOND_AMOUNT +
+                         " gives " + balance.toString());
+
+      // Subtract the third amount from the balance
+      // and display the results.
+      balance = balance.subtract(THIRD_AMOUNT);
+      System.out.println("Subtracting " + THIRD_AMOUNT +
+                         " gives " + balance.toString());
+
+      // Determine if the second amount equals
+      // the first amount and store the result.
+      boolean equal = SECOND_AMOUNT.equals(FIRST_AMOUNT);
+
+      // Display the result.
+      if(equal)
+      {
+         // The first and second amounts are equal.
+         System.out.println(SECOND_AMOUNT + " equals " +
+                            FIRST_AMOUNT);
+      }
+      else
+      {
+         // The first and second amounts are not equal.
+         System.out.println(SECOND_AMOUNT +
+                            " does not equal " +
+                            FIRST_AMOUNT);
+      }
+
+      // Determine if the third amount equals
+      // the first amount and store the result.
+      equal = THIRD_AMOUNT.equals(FIRST_AMOUNT);
+
+      // Display the result.
+      if(equal)
+      {
+         // The third and first amounts are equal.
+         System.out.println(THIRD_AMOUNT + " equals " +
+                            FIRST_AMOUNT);
+      }
+      else
+      {
+         // The third and first amounts are not equal.
+         System.out.println(THIRD_AMOUNT +
+                            " does not equal " +
+                            FIRST_AMOUNT);
+      }
+   }
+}]777;notify;Command completed;cat MoneyDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ javac MoneyDemo.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac MoneyDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ java MoneyDemo 
+[?2004l]777;preexec\The current amount is $500.00
+Adding $10.02 gives $510.02
+Subtracting $10.88 gives $499.14
+$10.02 equals $10.02
+$10.88 does not equal $10.02
+]777;notify;Command completed;java MoneyDemo \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ cat CreditCardDemo.java 
+[?2004l]777;preexec\/**
+   This program demonstrates the CreditCard class.
+*/
+
+public class CreditCardDemo
+{
+   public static void main(String[] args)
+   {
+      // Named constants
+      final Money CREDIT_LIMIT  = new Money(1000);
+      final Money FIRST_AMOUNT  = new Money(200);
+      final Money SECOND_AMOUNT = new Money(10.02);
+      final Money THIRD_AMOUNT  = new Money(25);
+      final Money FOURTH_AMOUNT = new Money(990);
+
+      // Create an instance of the Person class.
+      Person owner = new Person("Christie", "Diane",
+                     new Address("237J Harvey Hall",
+                     "Menomonie", "WI", "54751"));
+
+      // Create an instance of the CreditCard class.
+      CreditCard visa = new CreditCard(owner,
+                        CREDIT_LIMIT);
+
+      // Display the credit card information.
+      System.out.println(visa.getPersonals());
+      System.out.println("Balance: " + visa.getBalance());
+      System.out.println("Credit Limit: " +
+                         visa.getCreditLimit());
+
+      System.out.println();   // To print a new line
+
+      // Attempt to charge the first amount and
+      // display the results.
+      System.out.println("Attempting to charge " +
+                         FIRST_AMOUNT);
+      visa.charge(FIRST_AMOUNT);
+      System.out.println("Balance: " + visa.getBalance());
+
+      System.out.println();   // To print a new line
+
+      // Attempt to charge the second amount and
+      // display the results.
+      System.out.println("Attempting to charge " +
+                         SECOND_AMOUNT);
+      visa.charge(SECOND_AMOUNT);
+      System.out.println("Balance: " + visa.getBalance());
+
+      System.out.println();   // To print a new line
+
+      // Attempt to pay using the third amount and
+      // display the results.
+      System.out.println("Attempting to pay " +
+                         THIRD_AMOUNT);
+      visa.payment(THIRD_AMOUNT);
+      System.out.println("Balance: " + visa.getBalance());
+
+      System.out.println();   // To print a new line
+
+      // Attempt to charge using the fourth amount and
+      // display the results.
+      System.out.println("Attempting to charge " +
+                         FOURTH_AMOUNT);
+      visa.charge(FOURTH_AMOUNT);
+      System.out.println("Balance: " + visa.getBalance());
+   }
+}]777;notify;Command completed;cat CreditCardDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ javac CreditCardDemo.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac CreditCardDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ java CreditCardDemo 
+[?2004l]777;preexec\Diane Christie, 237J Harvey Hall, Menomonie, WI 54751
+Balance: $0.00
+Credit Limit: $1000.00
+
+Attempting to charge $200.00
+Charge: $200.00
+Balance: $200.00
+
+Attempting to charge $10.02
+Charge: $10.02
+Balance: $210.02
+
+Attempting to pay $25.00
+Balance: $185.02
+
+Attempting to charge $990.00
+Exceed credit limit
+Balance: $185.02
+]777;notify;Command completed;java CreditCardDemo \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/Lab7\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/Lab7\[?2004h[shubhammalhotra@fedora Lab7]$ exit
+[?2004l]777;preexec\exit
+
+Script done on 2021-11-15 02:37:55+05:30 [COMMAND_EXIT_CODE="0"]

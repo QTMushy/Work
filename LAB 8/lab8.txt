@@ -1,0 +1,285 @@
+Script started on 2021-11-22 04:58:13+05:30 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="80" LINES="24"]
+]777;notify;Command completed;exit\]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ cat MA[Kain.java 
+[?2004l]777;preexec\import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args)
+    throws IOException
+    {
+        FileReader reader = new FileReader("secret.txt");
+        BufferedReader br = new BufferedReader(reader);
+        
+
+        String line = br.readLine();
+
+        while(line != null)
+        {
+            String[] token = line.split(" ");
+
+            StringBuilder s = new StringBuilder();
+            for (int i = 0; i < token.length; i = i + 5){
+                s.append(Character.toUpperCase(token[i].charAt(0)));}
+
+            System.out.println(s);
+
+            line = br.readLine();
+
+        }
+
+        br.close();
+        reader.close();
+
+    }
+    
+}
+]777;notify;Command completed;cat Main.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ javac Main.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac Main.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ java Main 
+[?2004l]777;preexec\JAVA
+]777;notify;Command completed;java Main \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ cat TimeDemo.java 
+[?2004l]777;preexec\import java.util.Scanner;
+
+/**
+   This program demonstrates the Time class.
+*/
+
+public class TimeDemo
+{
+   public static void main(String[] args)
+   {
+      Scanner keyboard = new Scanner(System.in);
+      char answer = 'Y';
+      String enteredTime;
+      String response;
+
+      while (Character.toUpperCase(answer)=='Y')
+      {
+         System.out.print("Enter a military time " +
+                          "using the ##:## format: ");
+         enteredTime = keyboard.nextLine();
+         Time now = new Time (enteredTime);
+         System.out.println("Do you want to enter " +
+                            "another (Y/N)? ");
+         response = keyboard.nextLine();
+         answer = response.charAt(0);
+      }
+   }
+}]777;notify;Command completed;cat TimeDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ cat Time[K[K[K[K[K[K[K[Kjavac TimeSe[K[KDemo.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac TimeDemo.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ java TimeDemo 
+[?2004l]777;preexec\Enter a military time using the ##:## format: 13:00
+1:00 PM
+Do you want to enter another (Y/N)? 
+y
+Enter a military time using the ##:## format: 1:111
+1:111 is not a valid miliary time.
+Do you want to enter another (Y/N)? 
+n
+]777;notify;Command completed;java TimeDemo \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ cat AccountDriver.java 
+[?2004l]777;preexec\/**
+   This program demonstrates the BankAccount and
+   derived classes.
+*/
+
+public class AccountDriver
+{
+   public static void main(String[] args)
+   {
+      double put_in = 500;
+      double take_out = 1000;
+
+      String money;
+      String money_in;
+      String money_out;
+      boolean completed;
+
+      // Test the CheckingAccount class.
+      CheckingAccount myCheckingAccount =
+         new CheckingAccount("Benjamin Franklin", 1000);
+
+      System.out.println("Account Number " +
+                         myCheckingAccount.
+                         getAccountNumber() +
+                         " belonging to " +
+                         myCheckingAccount.getOwner());
+
+      money = String.format("%.2f",
+                            myCheckingAccount.
+                            getBalance());
+
+      System.out.println("Initial balance = $" + money);
+
+      myCheckingAccount.deposit(put_in);
+
+      money_in = String.format("%.2f", put_in);
+
+      money = String.format("%.2f",
+                            myCheckingAccount.
+                            getBalance());
+
+      System.out.println("After deposit of $" +
+                         money_in + ",  balance = $" +
+                         money);
+
+      completed = myCheckingAccount.withdraw(take_out);
+
+      money_out = String.format("%.2f", take_out);
+
+      money = String.format("%.2f",
+                            myCheckingAccount.
+                            getBalance());
+
+      if (completed)
+      {
+         System.out.println("After withdrawal of $" +
+                            money_out + ", balance = $" +
+                            money);
+      }
+      else
+      {
+         System.out.println("Insuffient funds to " +
+                            "withdraw $" + money_out +
+                            ", balance = $" + money);
+      }
+
+      System.out.println();
+
+      // Test the SavingsAccount class.
+      SavingsAccount yourAccount =
+         new SavingsAccount("William Shakespeare", 400);
+
+      System.out.println("Account Number " +
+                         yourAccount.getAccountNumber() +
+                         " belonging to " +
+                         yourAccount.getOwner());
+
+      money = String.format("%.2f",
+                            yourAccount.getBalance());
+
+      System.out.println("Initial balance = $" + money);
+
+      yourAccount.deposit(put_in);
+
+      money_in = String.format("%.2f", put_in);
+
+      money = String.format("%.2f",
+                            yourAccount.getBalance());
+
+      System.out.println("After deposit of $" +
+                         money_in + ", balance = $" +
+                         money);
+
+      completed = yourAccount.withdraw(take_out);
+
+      money_out = String.format("%.2f", take_out);
+
+      money = String.format("%.2f",
+                            yourAccount.getBalance());
+
+      if (completed)
+      {
+         System.out.println("After withdrawal of $" +
+                            money_out + ", balance = $" +
+                            money);
+      }
+      else
+      {
+         System.out.println("Insuffient funds " +
+                            "to withdraw $" + money_out +
+                            ", balance = $" + money);
+      }
+
+      yourAccount.postInterest();
+
+      money = String.format("%.2f",
+                            yourAccount.getBalance());
+
+      System.out.println("After monthly interest " +
+                         "has been posted," +
+                         "balance = $" + money);
+
+      System.out.println();
+
+      // Test the copy constructor of the
+      // SavingsAccount class.
+      SavingsAccount secondAccount =
+         new SavingsAccount(yourAccount, 5);
+
+      System.out.println("Account Number " +
+                         secondAccount.
+                         getAccountNumber() +
+                         " belonging to " +
+                         secondAccount.getOwner());
+
+      money = String.format("%.2f",
+                            secondAccount.getBalance());
+
+      System.out.println("Initial balance = $" + money);
+
+      secondAccount.deposit(put_in);
+
+      money_in = String.format("%.2f", put_in);
+
+      money = String.format("%.2f",
+                            secondAccount.getBalance());
+
+      System.out.println("After deposit of $" + money_in +
+                         ", balance = $" + money);
+
+      secondAccount.withdraw(take_out);
+
+      money_out = String.format("%.2f", take_out);
+
+      money  = String.format("%.2f",
+                             secondAccount.getBalance());
+
+      if (completed)
+      {
+         System.out.println("After withdrawal of $" +
+                            money_out + ", balance = $" +
+                            money);
+      }
+      else
+      {
+         System.out.println("Insuffient funds " +
+                            "to withdraw $" + money_out +
+                            ", balance = $" + money);
+      }
+
+      System.out.println();
+
+      // Test to make sure new accounts are
+      // numbered correctly.
+      CheckingAccount yourCheckingAccount =
+         new CheckingAccount("Issac Newton", 5000);
+
+      System.out.println("Account Number " +
+                         yourCheckingAccount.
+                         getAccountNumber() +
+                         " belonging to " +
+                         yourCheckingAccount.getOwner());
+   }
+}
+]777;notify;Command completed;cat AccountDriver.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ javac AccountDriver.java 
+[?2004l]777;preexec\]777;notify;Command completed;javac AccountDriver.java \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ java Accoi[KuntDriver 
+[?2004l]777;preexec\Account Number 100001-10 belonging to Benjamin Franklin
+Initial balance = $1000.00
+After deposit of $500.00,  balance = $1500.00
+After withdrawal of $1000.00, balance = $499.85
+
+Account Number 100002-0 belonging to William Shakespeare
+Initial balance = $400.00
+After deposit of $500.00, balance = $900.00
+Insuffient funds to withdraw $1000.00, balance = $900.00
+After monthly interest has been posted,balance = $901.88
+
+Account Number 100002-1 belonging to William Shakespeare
+Initial balance = $5.00
+After deposit of $500.00, balance = $505.00
+Insuffient funds to withdraw $1000.00, balance = $505.00
+
+Account Number 100003-10 belonging to Issac Newton
+]777;notify;Command completed;java AccountDriver \]777;precmd\]0;shubhammalhotra@fedora:/run/media/shubhammalhotra/ADATA UFD/LAB 8\]7;file://fedora/run/media/shubhammalhotra/ADATA%20UFD/LAB%208\[?2004h[shubhammalhotra@fedora LAB 8]$ exit
+[?2004l]777;preexec\exit
+
+Script done on 2021-11-22 04:59:45+05:30 [COMMAND_EXIT_CODE="0"]
